@@ -8,7 +8,15 @@ tsconfig.json 是ts编译器的配置文件,ts编译器可以根据它的信息�
   * exclude 不要被编译 默认值有
   */
   "include": [
-    "./src/**/*",
+    "./src/**/*"
   ],
-  "exclude": ["node_modules", "tsconfig"]
+//  "exclude": ["node_modules", "tsconfig"]
+  "compilerOptions": {
+      //target 用来指定ts被编译为es的版本
+    "target": "es2015", //ts被编译为的ES的版本
+    "module": "amd",// 指定要使用的模块化的规范
+    "lib":["dom"], //lib用指定项目的库
+    "outDir": "./dist", // 用来指定编译后的文件所在的目录
+    "outFile": "./dist/app.js"  // 合并到一个文件
+  }
 }
