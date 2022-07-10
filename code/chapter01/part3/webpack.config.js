@@ -11,7 +11,11 @@ module.exports = {
     output: {
         // 指定打包文件目录
         path: path.resolve(__dirname,'dist'),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        //告诉webpack 不使用箭头函数
+        environment:{
+            arrowFunction: false
+        }
     },
     // 指定webpack打包使用的模块
     module: {
@@ -19,7 +23,32 @@ module.exports = {
             {
                 //test 指定的规则生效的文件
                 test: /\.ts$/,
-                use:'ts-loader',
+                use:[
+                    {
+                        //置顶加载器
+                        loader:'babel-loader',
+                        options:{
+                            presets:[
+                                [
+                                    //指定环境的插件
+                                    "@babel/preset-env",
+                                    // 配置信息
+                                    {
+                                        // 要兼容的目标游览器
+                                        targets:{
+                                            "chrome":"58",
+                                            "ie":"11",
+                                        },
+                                        "corejs":"3",
+                                        //使用corejs的方式  usage表示按需加载
+                                        "useBuiltIns":"usage"
+                                    }
+                                ]
+                            ]
+                        }
+                    },
+                    'ts-loader'
+                ],
                 exclude: /node_modules/,
             }
         ]
