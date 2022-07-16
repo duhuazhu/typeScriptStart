@@ -1,11 +1,14 @@
-(function (name: string) {
+(function fn() {
     class Animal{
         name: string;
         constructor(name: string) {
-        this.name = name;
+            this.name = name;
         }
         sayHello(){
             console.log('Hello');
+        }
+        sayHello2(){
+            this.sayHello()
         }
     }
     class  Dog extends Animal{
@@ -21,4 +24,8 @@
     }
     const dog = new Dog('dog',10);
     dog.sayHello();
-})
+    const _animal  = new Animal('trt');
+
+    _animal.sayHello()
+    _animal.sayHello2()
+})();
