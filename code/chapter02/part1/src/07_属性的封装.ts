@@ -35,7 +35,7 @@
         }
     }
     const b = new B('h');
-    console.log(B.name);
+    // console.log(B.name);
     /*
     * 类调用 对象不能调用
     * */

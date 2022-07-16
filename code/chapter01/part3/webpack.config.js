@@ -57,7 +57,7 @@ module.exports = {
         new HTMLWebpackPlugin({
             template:'./src/index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin()///78////////////////
     ],
     //用来设置引入模块
     resolve:{
