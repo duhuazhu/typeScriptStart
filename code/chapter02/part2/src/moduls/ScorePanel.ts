@@ -1,6 +1,6 @@
 
 //定义表示记分牌的类
-class ScorePanel{
+class ScorePanel {
     score= 0;
     level = 1;
     scoreEle:HTMLElement;
